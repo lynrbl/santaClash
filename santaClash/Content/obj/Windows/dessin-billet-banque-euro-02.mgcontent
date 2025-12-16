@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png</SourceFile>
+  <SourceTime>2025-12-09T13:35:18.0522986+01:00</SourceTime>
+  <DestFile>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/bin/Windows/dessin-billet-banque-euro-02.xnb</DestFile>
+  <DestTime>2025-12-09T13:36:16.0570947+01:00</DestTime>
+  <Importer>TextureImporter</Importer>
+  <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
+  <Processor>TextureProcessor</Processor>
+  <ProcessorTime>2025-10-20T16:25:32+02:00</ProcessorTime>
+  <Parameters>
+    <Key>ColorKeyColor</Key>
+    <Value>255,0,255,255</Value>
+  </Parameters>
+  <Parameters>
+    <Key>ColorKeyEnabled</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>GenerateMipmaps</Key>
+    <Value>False</Value>
+  </Parameters>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>ResizeToPowerOfTwo</Key>
+    <Value>False</Value>
+  </Parameters>
+  <Parameters>
+    <Key>MakeSquare</Key>
+    <Value>False</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Color</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

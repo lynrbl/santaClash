@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/background.webp</File>
+    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png</File>
+    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/leprechaun.png</File>
+    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/santaCash.webp</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

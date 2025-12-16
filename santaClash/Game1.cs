@@ -15,6 +15,8 @@ public class Game1 : Game
     private Texture2D leprechaun;
     private Texture2D santaCash;
     private Player player1;
+    private Player player2;
+    private Santa santa;
 
     public Game1()
     {
@@ -22,15 +24,15 @@ public class Game1 : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
-        _graphics.PreferredBackBufferWidth = gameSize.X;
-        _graphics.PreferredBackBufferHeight = gameSize.Y;
-        _graphics.ApplyChanges();
+
     }
 
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-
+        _graphics.PreferredBackBufferWidth = gameSize.X;
+        _graphics.PreferredBackBufferHeight = gameSize.Y;
+        _graphics.ApplyChanges();
 
         base.Initialize();
     }
@@ -44,7 +46,10 @@ public class Game1 : Game
         santaCash = Content.Load<Texture2D>("santaCash");
         // TODO: use this.Content to load your game content here
 
-        player1 = new Player(_graphics,leprechaun, new Vector2(10, 10), new Vector2(5, 5));
+        player1 = new Player(_graphics, leprechaun, new Vector2(10, 10), new Vector2(350, 465));
+        player2 = new Player(_graphics, leprechaun, new Vector2(10, 10), new Vector2(850, 465));
+
+        santa = new Santa(_graphics, santaCash, new Vector2(200, 200), new Vector2(1250, 1000) / 2);
     }
 
     protected override void Update(GameTime gameTime)
@@ -55,6 +60,45 @@ public class Game1 : Game
             Exit();
 
         // TODO: Add your update logic here
+
+        keyPressedPlayer();
+        int screenWidth = GraphicsDevice.Viewport.Width;
+        int screenHeight = GraphicsDevice.Viewport.Height;
+
+
+        player1.Update(gameTime, screenWidth, screenHeight);
+        player2.Update(gameTime, screenWidth, screenHeight);
+        santa.Update();
+        base.Update(gameTime);
+    }
+
+    protected override void Draw(GameTime gameTime)
+    {
+        GraphicsDevice.Clear(Color.CornflowerBlue);
+
+        // TODO: Add your drawing code here
+        _spriteBatch.Begin();
+        _spriteBatch.Draw(background, new Rectangle(0, 0, gameSize.X, gameSize.Y), Color.White);
+        _spriteBatch.Draw(billet, new Rectangle(600, 330, 50, 50), Color.White);
+
+        santa.Draw(_spriteBatch);
+        player1.Draw(_spriteBatch);
+        player2.Draw(_spriteBatch);
+
+
+        _spriteBatch.End();
+        base.Draw(gameTime);
+    }
+
+
+    // public void getKeyboardState()
+    // {
+
+    // }
+
+    public void keyPressedPlayer()
+    {
+        var keyboardState = Keyboard.GetState();
 
         if (keyboardState.IsKeyDown(Keys.S) && keyboardState.IsKeyDown(Keys.D))
         {
@@ -92,33 +136,42 @@ public class Game1 : Game
         {
             player1.position.Y += player1.vitesse.Y;
         }
-        
-        player1.Update(gameTime);
-        base.Update(gameTime);
+
+        if (keyboardState.IsKeyDown(Keys.Up) && keyboardState.IsKeyDown(Keys.Right))
+        {
+            player2.position.Y -= player2.vitesse.Y;
+            player2.position.X += player2.vitesse.X;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Up) && keyboardState.IsKeyDown(Keys.Left))
+        {
+            player2.position.Y -= player2.vitesse.Y;
+            player2.position.X -= player2.vitesse.X;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Down) && keyboardState.IsKeyDown(Keys.Right))
+        {
+            player2.position.Y += player2.vitesse.Y;
+            player2.position.X += player2.vitesse.X;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Down) && keyboardState.IsKeyDown(Keys.Left))
+        {
+            player2.position.Y += player2.vitesse.Y;
+            player2.position.X -= player2.vitesse.X;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Right))
+        {
+            player2.position.X += player2.vitesse.X;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Left))
+        {
+            player2.position.X -= player2.vitesse.X;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Down))
+        {
+            player2.position.Y += player2.vitesse.Y;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Up))
+        {
+            player2.position.Y -= player2.vitesse.Y;
+        }
     }
-
-    protected override void Draw(GameTime gameTime)
-    {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
-        _spriteBatch.Begin();
-        _spriteBatch.Draw(background, new Rectangle(0, 0, gameSize.X, gameSize.Y), Color.White);
-        _spriteBatch.Draw(billet, new Rectangle(600, 330, 50, 50), Color.White);
-
-        _spriteBatch.Draw(leprechaun, new Rectangle(350, 465, 75, 75), Color.White);
-        _spriteBatch.Draw(leprechaun, new Rectangle(850, 465, 75, 75), Color.White);
-        _spriteBatch.Draw(santaCash, new Rectangle(525, 400, 200, 200), Color.White);
-
-        player1.Draw(_spriteBatch);
-
-        _spriteBatch.End();
-        base.Draw(gameTime);
-    }
-
-
-    // public void getKeyboardState()
-    // {
-        
-    // }
 }

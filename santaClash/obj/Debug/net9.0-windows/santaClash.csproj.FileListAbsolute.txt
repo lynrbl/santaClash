@@ -29,3 +29,4 @@ C:\Users\Admin\Desktop\CFPTI_2.0\2025-2026\mardi-PM-APROG\santaClash\santaClash\
 C:\Users\Admin\Desktop\CFPTI_2.0\2025-2026\mardi-PM-APROG\santaClash\santaClash\bin\Debug\net9.0-windows\Content\dessin-billet-banque-euro-02.xnb
 C:\Users\Admin\Desktop\CFPTI_2.0\2025-2026\mardi-PM-APROG\santaClash\santaClash\bin\Debug\net9.0-windows\Content\leprechaun.xnb
 C:\Users\Admin\Desktop\CFPTI_2.0\2025-2026\mardi-PM-APROG\santaClash\santaClash\bin\Debug\net9.0-windows\Content\santaCash.xnb
+C:\Users\Admin\Desktop\CFPTI_2.0\2025-2026\mardi-PM-APROG\santaClash\santaClash\obj\Debug\net9.0-windows\santaClash.sourcelink.json

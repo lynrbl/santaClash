@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("santaClash")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+123e2d75cd088672db4700503ec9d9dff571f1b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("santaClash")]
 [assembly: System.Reflection.AssemblyTitleAttribute("santaClash")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

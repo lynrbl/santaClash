@@ -10,6 +10,8 @@ public class Player : GameObject
     private readonly GraphicsDeviceManager _graphics;
     private Texture2D _texture;
 
+    private float scale = 0.2f;
+
     public Player(GraphicsDeviceManager graphics, Texture2D texture, Vector2 vitesse, Vector2 position) : base(position, vitesse)
     {
         _graphics = graphics;
@@ -17,29 +19,28 @@ public class Player : GameObject
 
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, int screenWidth, int screenHeight)
     {
         base.Update(gameTime);
+        float spriteWidth = _texture.Width * scale;
+        float spriteHeight = _texture.Height * scale;
 
-        float minX = 0 ;
-        float maxX = 1250 - _texture.Width ;
-        float minY = 0;
-        float maxY = 1000 - _texture.Height;
+        float maxX = screenWidth - spriteWidth;
+        float maxY = screenHeight - spriteHeight;
 
-        // bloque la raquette pour rester à l'écran
-        if (position.X < minX)
-            position = new Vector2(minX, position.Y);
-        else if (position.X > maxX)
-            position = new Vector2(maxX, position.Y);
-        else if (position.Y < minY)
-            position = new Vector2(position.X, minY);
-        else if (position.Y > maxY)
-            position = new Vector2(position.X, maxY);
+        position.X = MathHelper.Clamp(position.X, 0, maxX);
+        position.Y = MathHelper.Clamp(position.Y, 0, maxY);
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(_texture, position, Color.White);
+        // spriteBatch.Draw(_texture, position, Color.White, scale);
+        //null signifie qu'on prend toute l'image source
+        // 0f = Pas de rotation 
+        //Vector2.Zero = Origine en haut à gauche
+        //SpriteEffects.None pas d'éffet miroir
+        // 0f = couche de profondeur
+        spriteBatch.Draw(_texture, position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
     }
 
 

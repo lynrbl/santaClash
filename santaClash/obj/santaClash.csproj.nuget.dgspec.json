@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\CFPTI_2.0\\2025-2026\\mardi-PM-APROG\\santaClash\\santaClash\\santaClash.csproj": {}
+    "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\santaClash.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\CFPTI_2.0\\2025-2026\\mardi-PM-APROG\\santaClash\\santaClash\\santaClash.csproj": {
+    "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\santaClash.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\CFPTI_2.0\\2025-2026\\mardi-PM-APROG\\santaClash\\santaClash\\santaClash.csproj",
+        "projectUniqueName": "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\santaClash.csproj",
         "projectName": "santaClash",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\CFPTI_2.0\\2025-2026\\mardi-PM-APROG\\santaClash\\santaClash\\santaClash.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\CFPTI_2.0\\2025-2026\\mardi-PM-APROG\\santaClash\\santaClash\\obj\\",
+        "projectPath": "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\santaClash.csproj",
+        "packagesPath": "C:\\Users\\zumol\\.nuget\\packages\\",
+        "outputPath": "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zumol\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -78,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

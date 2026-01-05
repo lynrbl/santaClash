@@ -1,1 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/background.webp","C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/bin/Windows/background.xnb","TextureProcessor","Texture2DContent",33682,518485,0,0733351
+"C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png","C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/bin/Windows/dessin-billet-banque-euro-02.xnb","TextureProcessor","Texture2DContent",341859,742985,0,0116974
+"C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/leprechaun.png","C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/bin/Windows/leprechaun.xnb","TextureProcessor","Texture2DContent",179834,1000085,0,0114616
+"C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/santaCash.webp","C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/bin/Windows/santaCash.xnb","TextureProcessor","Texture2DContent",28888,1708885,0,0263983
+"C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/SpriteFont.spritefont","C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/bin/Windows/SpriteFont.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21529,0,0447372

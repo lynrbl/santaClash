@@ -4,12 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/background.webp</File>
-    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png</File>
-    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/leprechaun.png</File>
-    <File>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/santaCash.webp</File>
+    <File>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/background.webp</File>
+    <File>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png</File>
+    <File>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/leprechaun.png</File>
+    <File>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/santaCash.webp</File>
+    <File>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/SpriteFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

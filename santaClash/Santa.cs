@@ -22,6 +22,10 @@ public class Santa : GameObject
     private float _noiseStrength = 20f; // intensité du "chaos"
     private float _damping = 0.90f; // amortissement de la vitesse
 
+    // barre d'argent
+    public float argentMax = 100f;
+    public float argentActuel = 0f;
+
     public Santa(GraphicsDeviceManager graphics, Texture2D texture, Vector2 vitesse, Vector2 position) : base(position, vitesse)
     {
         _graphics = graphics;
@@ -56,6 +60,22 @@ public class Santa : GameObject
         _position += _velocity;
     }
 
+    public Rectangle GetBounds()
+    {
+        return new Rectangle((int)(position.X - _origin.X * scale), (int)(position.Y - _origin.Y * scale), (int)(_texture.Width * scale), (int)(_texture.Height * scale));
+    }
+
+    public void AjouterArgent(float montant)
+    {
+        argentActuel += montant;
+        if (argentActuel > argentMax)
+            argentActuel = argentMax;
+    }
+
+    public bool BarrePleine()
+    {
+        return argentActuel >= argentMax;
+    }
 
     public override void Draw(SpriteBatch spriteBatch)
     {

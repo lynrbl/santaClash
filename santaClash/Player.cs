@@ -11,6 +11,7 @@ public class Player : GameObject
     private Texture2D _texture;
 
     private float scale = 0.2f;
+    public int score = 0;
 
     public Player(GraphicsDeviceManager graphics, Texture2D texture, Vector2 vitesse, Vector2 position) : base(position, vitesse)
     {
@@ -30,6 +31,11 @@ public class Player : GameObject
 
         position.X = MathHelper.Clamp(position.X, 0, maxX);
         position.Y = MathHelper.Clamp(position.Y, 0, maxY);
+    }
+
+    public Rectangle GetBounds()
+    {
+        return new Rectangle((int)position.X, (int)position.Y, (int)(_texture.Width * scale), (int)(_texture.Height * scale));
     }
 
     public override void Draw(SpriteBatch spriteBatch)

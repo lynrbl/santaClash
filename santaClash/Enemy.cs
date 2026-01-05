@@ -12,6 +12,7 @@ public class Enemy : GameObject
     private Texture2D _texture;
 
     private float scale = 0.2f;
+    private float speed = 2f;
 
     public Enemy(GraphicsDeviceManager graphics, Texture2D texture, Vector2 vitesse, Vector2 position) : base(position, vitesse)
     {
@@ -20,21 +21,29 @@ public class Enemy : GameObject
 
     }
 
-    public void Update(GameTime gameTime, int screenWidth, int screenHeight)
+    public void Update(GameTime gameTime, Vector2 santaPosition)
     {
+        if (!isAlive) return;
+
         base.Update(gameTime);
-        float spriteWidth = _texture.Width * scale;
-        float spriteHeight = _texture.Height * scale;
+        
+        // déplacement vers le Père Noël
+        Vector2 direction = santaPosition - position;
+        if (direction != Vector2.Zero)
+            direction.Normalize();
+        
+        position += direction * speed;
+    }
 
-        float maxX = screenWidth - spriteWidth;
-        float maxY = screenHeight - spriteHeight;
-
-        position.X = MathHelper.Clamp(position.X, 0, maxX);
-        position.Y = MathHelper.Clamp(position.Y, 0, maxY);
+    public Rectangle GetBounds()
+    {
+        return new Rectangle((int)position.X, (int)position.Y, (int)(_texture.Width * scale), (int)(_texture.Height * scale));
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
+        if (!isAlive) return;
+
         // spriteBatch.Draw(_texture, position, Color.White, scale);
         //null signifie qu'on prend toute l'image source
         // 0f = Pas de rotation 

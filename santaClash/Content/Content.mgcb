@@ -61,3 +61,10 @@
 /processorParam:TextureFormat=Color
 /build:santaCash.webp
 
+#begin SpriteFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:SpriteFont.spritefont
+

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png</SourceFile>
-  <SourceTime>2025-12-09T13:35:18.0522986+01:00</SourceTime>
-  <DestFile>C:/Users/Admin/Desktop/CFPTI_2.0/2025-2026/mardi-PM-APROG/santaClash/santaClash/Content/bin/Windows/dessin-billet-banque-euro-02.xnb</DestFile>
-  <DestTime>2025-12-09T13:36:16.0570947+01:00</DestTime>
+  <SourceFile>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/dessin-billet-banque-euro-02.png</SourceFile>
+  <SourceTime>2026-01-05T22:12:47.0457294+01:00</SourceTime>
+  <DestFile>C:/ProgammeChad/wamp64/www/santaClash/santaClash/Content/bin/Windows/dessin-billet-banque-euro-02.xnb</DestFile>
+  <DestTime>2026-01-05T22:37:05.5467181+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

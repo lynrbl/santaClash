@@ -9,8 +9,8 @@ public class Player : GameObject
 {
     private readonly GraphicsDeviceManager _graphics;
     private Texture2D _texture;
-
-    private float scale = 0.2f;
+ 
+    private float scale = 0.6f;
     public int score = 0;
 
     public Player(GraphicsDeviceManager graphics, Texture2D texture, Vector2 vitesse, Vector2 position) : base(position, vitesse)
@@ -43,8 +43,8 @@ public class Player : GameObject
         // spriteBatch.Draw(_texture, position, Color.White, scale);
         //null signifie qu'on prend toute l'image source
         // 0f = Pas de rotation 
-        //Vector2.Zero = Origine en haut à gauche
-        //SpriteEffects.None pas d'éffet miroir
+        //Vector2.Zero = Origine en haut a gauche
+        //SpriteEffects.None pas d effet miroir
         // 0f = couche de profondeur
         spriteBatch.Draw(_texture, position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
     }

@@ -18,9 +18,8 @@ public class Santa : GameObject
     private Vector2 _origin;
 
     private float scale = 0.4f;
-    private float _attractionStrength = 50f; // force qui attire vers le centre
-    private float _noiseStrength = 20f; // intensité du "chaos"
-    private float _damping = 0.90f; // amortissement de la vitesse
+    private float _attractionStrength = 50f;
+    private float _noiseStrength = 20f; 
 
     // barre d'argent
     public float argentMax = 100f;
@@ -40,23 +39,23 @@ public class Santa : GameObject
 
     public void Update()
     {
-        // Direction vers la position cible
+  
         Vector2 toCenter = _targetPosition - _position;
         if (toCenter != Vector2.Zero)
             toCenter.Normalize();
-        // Petit bruit aléatoire
-        float noiseX = (float)(_random.NextDouble() - 10); // [-0.5, 0.5]
+      
+        float noiseX = (float)(_random.NextDouble() - 10);
         float noiseY = (float)(_random.NextDouble() - 10);
         Vector2 noise = new Vector2(noiseX, noiseY);
         if (noise != Vector2.Zero)
             noise.Normalize();
-        // Force totale = attraction vers le centre + bruit
+        
 
         Vector2 acceleration = toCenter * _attractionStrength + noise * _noiseStrength;
         Debug.WriteLine("Acceleration: " + acceleration);
-        // Intégration simple
+    
         _velocity += acceleration;
-        // _velocity *= _damping; // amortissement
+    
         _position += _velocity;
     }
 
@@ -82,8 +81,8 @@ public class Santa : GameObject
         // spriteBatch.Draw(_texture, position, Color.White, scale);
         //null signifie qu'on prend toute l'image source
         // 0f = Pas de rotation 
-        //Vector2.Zero = Origine en haut à gauche
-        //SpriteEffects.None pas d'éffet miroir
+        //Vector2.Zero = Origine en haut a gauche
+        //SpriteEffects.None pas d effet miroir
         // 0f = couche de profondeur
         spriteBatch.Draw(_texture, position, null, Color.White, 0f, _origin, scale, SpriteEffects.None, 0f);
     }

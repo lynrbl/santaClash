@@ -23,8 +23,8 @@ public class Game1 : Game
     private List<Enemy> enemies = new List<Enemy>();
     private Random random = new Random();
     private float spawnTimer = 0f;
-    private float spawnInterval = 2f; // temps entre chaque vague
-    private int enemiesPerWave = 3; // nombre de billets par vague
+    private float spawnInterval = 3.5f; // temps entre chaque vague
+    private int enemiesPerWave = 4; // nombre de billets par vague
 
     // game over
     private bool gameOver = false;
@@ -60,7 +60,7 @@ public class Game1 : Game
         font = Content.Load<SpriteFont>("SpriteFont");
         // TODO: use this.Content to load your game content here
 
-        // créer une texture blanche 1x1 pour dessiner des rectangles
+        
         pixel = new Texture2D(GraphicsDevice, 1, 1);
         pixel.SetData(new[] { Color.White });
 
@@ -68,6 +68,8 @@ public class Game1 : Game
         player2 = new Player(_graphics, leprechaun, new Vector2(10, 10), new Vector2(850, 465));
 
         santa = new Santa(_graphics, santaCash, new Vector2(200, 200), new Vector2(1250, 1000) / 2);
+
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -77,14 +79,27 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || keyboardState.IsKeyDown(Keys.Escape))
             Exit();
 
-        // si game over, on arrête la logique
+
+
+        GamePad.SetVibration(PlayerIndex.One, 0.5f, 0.5f);
+        GamePad.SetVibration(PlayerIndex.Two, 0.5f, 0.5f);
+
         if (gameOver)
         {
-            // appuyer sur R pour recommencer
-            if (keyboardState.IsKeyDown(Keys.R))
+            // appuyer sur R pour recommencer ou bouton Start/A sur manette
+            GamePadState gamePad1 = GamePad.GetState(PlayerIndex.One);
+            GamePadState gamePad2 = GamePad.GetState(PlayerIndex.Two);
+
+            if (keyboardState.IsKeyDown(Keys.R) ||
+                gamePad1.Buttons.Start == ButtonState.Pressed ||
+                gamePad1.Buttons.A == ButtonState.Pressed ||
+                gamePad2.Buttons.Start == ButtonState.Pressed ||
+                gamePad2.Buttons.A == ButtonState.Pressed)
             {
                 RestartGame();
             }
+
+
             base.Update(gameTime);
             return;
         }
@@ -105,6 +120,8 @@ public class Game1 : Game
         if (spawnTimer >= spawnInterval)
         {
             SpawnWave();
+            enemiesPerWave++; // augmenter le nombre d'ennemis par vague
+            spawnInterval = Math.Max(0.5f, spawnInterval - 0.1f);
             spawnTimer = 0f;
         }
 
@@ -120,7 +137,6 @@ public class Game1 : Game
         // collision ennemis avec santa
         CheckSantaCollisions();
 
-        // vérifier si game over
         if (santa.BarrePleine())
         {
             gameOver = true;
@@ -147,7 +163,7 @@ public class Game1 : Game
             enemy.Draw(_spriteBatch);
         }
 
-        // dessiner la barre d'argent du Père Noël
+       
         DrawMoneyBar();
 
         // dessiner les scores
@@ -164,15 +180,46 @@ public class Game1 : Game
     }
 
 
-    // public void getKeyboardState()
-    // {
-
-    // }
-
     public void keyPressedPlayer()
     {
         var keyboardState = Keyboard.GetState();
 
+        
+        GamePadState gamePad1 = GamePad.GetState(PlayerIndex.One);
+        GamePadState gamePad2 = GamePad.GetState(PlayerIndex.Two);
+
+      
+        const float deadZone = 0.2f;
+
+        // ========== PLAYER 1 ==========
+       
+        if (gamePad1.IsConnected)
+        {
+            Vector2 leftStick1 = gamePad1.ThumbSticks.Left;
+
+           
+            if (Math.Abs(leftStick1.X) > deadZone)
+            {
+                player1.position.X += leftStick1.X * player1.vitesse.X;
+            }
+            if (Math.Abs(leftStick1.Y) > deadZone)
+            {
+              
+                player1.position.Y -= leftStick1.Y * player1.vitesse.Y;
+            }
+
+           
+            if (gamePad1.DPad.Right == ButtonState.Pressed)
+                player1.position.X += player1.vitesse.X;
+            if (gamePad1.DPad.Left == ButtonState.Pressed)
+                player1.position.X -= player1.vitesse.X;
+            if (gamePad1.DPad.Up == ButtonState.Pressed)
+                player1.position.Y -= player1.vitesse.Y;
+            if (gamePad1.DPad.Down == ButtonState.Pressed)
+                player1.position.Y += player1.vitesse.Y;
+        }
+
+        
         if (keyboardState.IsKeyDown(Keys.S) && keyboardState.IsKeyDown(Keys.D))
         {
             player1.position.Y += player1.vitesse.Y;
@@ -210,6 +257,35 @@ public class Game1 : Game
             player1.position.Y += player1.vitesse.Y;
         }
 
+        // ========== PLAYER 2 ==========
+      
+        if (gamePad2.IsConnected)
+        {
+            Vector2 leftStick2 = gamePad2.ThumbSticks.Left;
+
+       
+            if (Math.Abs(leftStick2.X) > deadZone)
+            {
+                player2.position.X += leftStick2.X * player2.vitesse.X;
+            }
+            if (Math.Abs(leftStick2.Y) > deadZone)
+            {
+           
+                player2.position.Y -= leftStick2.Y * player2.vitesse.Y;
+            }
+
+           
+            if (gamePad2.DPad.Right == ButtonState.Pressed)
+                player2.position.X += player2.vitesse.X;
+            if (gamePad2.DPad.Left == ButtonState.Pressed)
+                player2.position.X -= player2.vitesse.X;
+            if (gamePad2.DPad.Up == ButtonState.Pressed)
+                player2.position.Y -= player2.vitesse.Y;
+            if (gamePad2.DPad.Down == ButtonState.Pressed)
+                player2.position.Y += player2.vitesse.Y;
+        }
+
+        
         if (keyboardState.IsKeyDown(Keys.Up) && keyboardState.IsKeyDown(Keys.Right))
         {
             player2.position.Y -= player2.vitesse.Y;
@@ -250,12 +326,14 @@ public class Game1 : Game
 
     private void SpawnWave()
     {
+
         for (int i = 0; i < enemiesPerWave; i++)
         {
-            // spawn sur les bords de l'écran
+            
             Vector2 spawnPos = GetRandomSpawnPosition();
             Enemy enemy = new Enemy(_graphics, billet, new Vector2(2, 2), spawnPos);
             enemies.Add(enemy);
+
         }
     }
 
@@ -347,10 +425,10 @@ public class Game1 : Game
         // bordure noire
         _spriteBatch.Draw(pixel, new Rectangle(barX - 3, barY - 3, barWidth + 6, barHeight + 6), Color.Black);
 
-        // barre de fond (gris foncé)
+
         _spriteBatch.Draw(pixel, new Rectangle(barX, barY, barWidth, barHeight), Color.DarkGray);
 
-        // barre d'argent (dégradé rouge vers vert selon le remplissage)
+      
         int fillWidth = (int)(barWidth * (santa.argentActuel / santa.argentMax));
         float ratio = santa.argentActuel / santa.argentMax;
         Color barColor = new Color(
@@ -360,7 +438,7 @@ public class Game1 : Game
         );
         _spriteBatch.Draw(pixel, new Rectangle(barX, barY, fillWidth, barHeight), barColor);
 
-        // icône de billet à côté de la barre
+      
         _spriteBatch.Draw(billet, new Rectangle(barX - 60, barY - 10, 50, 50), Color.White);
     }
 
@@ -370,35 +448,32 @@ public class Game1 : Game
         int scoreBoxHeight = 50;
         int margin = 20;
 
-        // Player 1 score (en bas à gauche)
+
         int p1X = margin;
         int p1Y = gameSize.Y - scoreBoxHeight - margin;
 
-        // fond du score player 1
+
         _spriteBatch.Draw(pixel, new Rectangle(p1X - 2, p1Y - 2, scoreBoxWidth + 4, scoreBoxHeight + 4), Color.Black);
         _spriteBatch.Draw(pixel, new Rectangle(p1X, p1Y, scoreBoxWidth, scoreBoxHeight), new Color(50, 50, 100));
 
-        // barre de score player 1 (jaune)
+
         int p1ScoreWidth = Math.Min(player1.score * 10, scoreBoxWidth - 10);
         _spriteBatch.Draw(pixel, new Rectangle(p1X + 5, p1Y + 5, p1ScoreWidth, scoreBoxHeight - 10), Color.Gold);
 
-
-        // Player 2 score (en bas à droite)
         int p2X = gameSize.X - scoreBoxWidth - margin;
         int p2Y = gameSize.Y - scoreBoxHeight - margin;
 
-        // fond du score player 2
+
         _spriteBatch.Draw(pixel, new Rectangle(p2X - 2, p2Y - 2, scoreBoxWidth + 4, scoreBoxHeight + 4), Color.Black);
         _spriteBatch.Draw(pixel, new Rectangle(p2X, p2Y, scoreBoxWidth, scoreBoxHeight), new Color(100, 50, 50));
 
-        // barre de score player 2 (cyan)
         int p2ScoreWidth = Math.Min(player2.score * 10, scoreBoxWidth - 10);
         _spriteBatch.Draw(pixel, new Rectangle(p2X + 5, p2Y + 5, p2ScoreWidth, scoreBoxHeight - 10), Color.Cyan);
     }
 
     private void DrawGameOver()
     {
-        // FOND NOIR TRANSPARENT
+        
         _spriteBatch.Draw(
             pixel,
             new Rectangle(0, 0, gameSize.X, gameSize.Y),
@@ -473,7 +548,7 @@ public class Game1 : Game
         );
 
         // TEXTE ACTION
-        string action = "Press R to Restart";
+        string action = "Press R or Start to Restart";
         Vector2 actionSize = font.MeasureString(action);
 
         _spriteBatch.DrawString(
@@ -495,5 +570,6 @@ public class Game1 : Game
         player2.position = new Vector2(850, 465);
         enemies.Clear();
         spawnTimer = 0f;
+        enemiesPerWave = 4;
     }
 }

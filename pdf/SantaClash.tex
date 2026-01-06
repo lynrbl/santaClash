@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article} % Définition du type de document : article A4 avec police 11pt
+
+%-------------------------------------------------------------------------------------
+% Informations générales du document
+%-------------------------------------------------------------------------------------
+\def\myauthor{Maxime Jean, Lyn Robel} 					% Auteur du document
+\def\myemail{maxime.jn@eduge.ch, lyn.rbl@eduge.ch}			% Adresse email de contact
+\def\mytitle{Documentation code source}		% Titre principal du document
+\def\mysubtitle{Santa Cash C\# Monogame}			% Sous-titre du document
+\date{\today}								% Date automatique (jour de compilation)
+
+%-------------------------------------------------------------------------------------
+% Packages essentiels pour le document
+%-------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}							% Encodage UTF-8 pour les accents
+\usepackage[T1]{fontenc}							% Encodage de police (accents + césure correcte)
+\usepackage[french]{babel}							% Langue française (traductions automatiques)
+\usepackage[fr-FR]{datetime2}						% Format français pour les dates
+\usepackage{lmodern}								% Police plus lisible que Computer Modern
+\usepackage[urlcolor=blue,linkcolor=blue,colorlinks=true]{hyperref}  % Liens hypertextes stylisés
+\usepackage{listings}								% Pour insérer du code source syntaxé
+\usepackage{color,xcolor}							% Pour la coloration syntaxique
+\usepackage{graphicx}								% Pour insérer des images
+\usepackage{parskip}								% Ajout d’un espacement entre les paragraphes
+\usepackage{fancyvrb}								% Verbatim avancé (code brut dans minipages)
+\usepackage{varioref} 								% Pour utiliser \vref et obtenir des références comme "voir page X"
+
+
+%-------------------------------------------------------------------------------------
+% Choix de la police : Helvetica (sans serif)
+%-------------------------------------------------------------------------------------
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}			% Définit Helvetica comme police par défaut
+
+
+%-------------------------------------------------------------------------------------
+% Mise en page
+%-------------------------------------------------------------------------------------
+\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}	% Définition des marges
+
+%-------------------------------------------------------------------------------------
+% En-têtes et pieds de page personnalisés
+%-------------------------------------------------------------------------------------
+\usepackage{lastpage}								% Pour afficher le nombre total de pages
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}											% Réinitialise les en-têtes/pieds par défaut
+
+% En-têtes
+\fancyhead[L]{\mytitle}								% Gauche : titre perso
+\fancyhead[C]{}										% Centre : modifiable
+\fancyhead[R]{\leftmark}							% Droite : nom de la section
+
+% Pieds de page
+\fancyfoot[L]{\textit{\myauthor}}			% Pied gauche
+\fancyfoot[C]{\tiny{-~\DTMnow~-}}					% Pied centre : date + heure
+\fancyfoot[R]{\thepage~/~\pageref{LastPage}}		% Pied droit : x / y pages
+
+% Lignes de séparation dans les en-têtes/pieds
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+	
+	\include{titlepage.tex}	% page de garde (géré avec info doc_params.tex)
+	
+	% Table des matières générée automatiquement
+	\tableofcontents
+	
+	
+	\section{Code source}
+	
+	\subsection{Game1.cs}
+	\lstinputlisting[caption=Game1.cs]{../SantaClash/Game1.cs}
+	
+	\subsection{Enemy.cs}
+	\lstinputlisting[caption=Enemy.cs]{../SantaClash/Enemy.cs}
+	
+	\subsection{Player.cs}
+	\lstinputlisting[caption=Player.cs]{../SantaClash/Player.cs}
+	
+	\subsection{Santa.cs}
+	\lstinputlisting[caption=Santa.cs]{../SantaClash/Santa.cs}
+	
+	
+\end{document}

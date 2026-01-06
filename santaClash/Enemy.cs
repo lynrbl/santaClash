@@ -27,7 +27,7 @@ public class Enemy : GameObject
 
         base.Update(gameTime);
         
-        // déplacement vers le Père Noël
+    
         Vector2 direction = santaPosition - position;
         if (direction != Vector2.Zero)
             direction.Normalize();
@@ -47,8 +47,8 @@ public class Enemy : GameObject
         // spriteBatch.Draw(_texture, position, Color.White, scale);
         //null signifie qu'on prend toute l'image source
         // 0f = Pas de rotation 
-        //Vector2.Zero = Origine en haut à gauche
-        //SpriteEffects.None pas d'éffet miroir
+        //Vector2.Zero = Origine en haut a gauche
+        //SpriteEffects.None pas d effet miroir
         // 0f = couche de profondeur
         spriteBatch.Draw(_texture, position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
     }

@@ -4159,23 +4159,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zumol\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\santaClash.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\CFPT\\2025-2026\\AtProg\\Mardi\\santaClash\\santaClash\\santaClash.csproj",
       "projectName": "santaClash",
-      "projectPath": "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\santaClash.csproj",
-      "packagesPath": "C:\\Users\\zumol\\.nuget\\packages\\",
-      "outputPath": "C:\\ProgammeChad\\wamp64\\www\\santaClash\\santaClash\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Documents\\CFPT\\2025-2026\\AtProg\\Mardi\\santaClash\\santaClash\\santaClash.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\CFPT\\2025-2026\\AtProg\\Mardi\\santaClash\\santaClash\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\zumol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
